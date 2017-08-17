@@ -6,7 +6,10 @@ import com.t3h.basemvp.R;
 import com.t3h.basemvp.ui.base.activity.BaseActivity;
 import com.t3h.basemvp.ui.base.animation.ScreenAnimation;
 import com.t3h.basemvp.ui.base.fragment.BaseFragment;
-import com.t3h.basemvp.ui.main.listmusic.ListMusicFragment;
+import com.t3h.basemvp.ui.main.insertdb.InsertDBFragment;
+import com.t3h.basemvp.ui.main.liststudent.ListStudentFragment;
+import com.t3h.basemvp.ui.main.loginuser.LoginUserFragment;
+import com.t3h.basemvp.ui.main.register.RegisterUserFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -26,7 +29,7 @@ public class MainActivity extends BaseActivity {
         BaseFragment.
                 openFragment(manager,
                         manager.beginTransaction(),
-                        ListMusicFragment.class,
+                        FragmentMain.class,
                         ScreenAnimation.NONE, null, false, true);
     }
 

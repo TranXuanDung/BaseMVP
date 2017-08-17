@@ -7,8 +7,8 @@ import com.t3h.basemvp.R;
  */
 
 public enum ScreenAnimation {
-    OPEN_FULL(R.anim.enter_to_right, R.anim.exit_to_right,
-            R.anim.enter_to_left, R.anim.exit_to_left),
+    OPEN_FULL(R.anim.enter_to_left, R.anim.exit_to_left,
+            R.anim.enter_to_right, R.anim.exit_to_right),
     NONE(0, 0, 0, 0);
 
 

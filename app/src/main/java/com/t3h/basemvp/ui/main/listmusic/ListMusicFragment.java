@@ -1,5 +1,8 @@
 package com.t3h.basemvp.ui.main.listmusic;
 
+import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -10,7 +13,11 @@ import android.widget.EditText;
 import com.t3h.basemvp.R;
 import com.t3h.basemvp.module.ItemSongReponse;
 import com.t3h.basemvp.module.ItemSongSearch;
+import com.t3h.basemvp.ui.base.animation.ScreenAnimation;
+import com.t3h.basemvp.ui.base.fragment.BaseFragment;
 import com.t3h.basemvp.ui.base.fragment.BaseMvpFragment;
+import com.t3h.basemvp.ui.main.MainActivity;
+import com.t3h.basemvp.ui.main.playmusic.PlayMusicFragment;
 
 import java.util.List;
 
@@ -103,5 +110,23 @@ public class ListMusicFragment extends BaseMvpFragment<IListMusic.Presenter>
     @Override
     public ItemSongSearch getDate(int position) {
         return itemSongSearches.get(position);
+    }
+
+    @Override
+    public void onClick(int position) {
+
+        MainActivity activity = (MainActivity) getActivity();
+
+        BaseFragment fragment = BaseFragment.getCurrentBaseFragment(activity.getSupportFragmentManager());
+        //Log.d(TAG, fragment.getClass().getName() + "");
+        FragmentManager manager = activity.getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        if (fragment != null) {
+            BaseFragment.hideFragment(manager, transaction, fragment.getClass(),
+                    ScreenAnimation.OPEN_FULL, false, false);
+        }
+
+        BaseFragment.openFragment(manager, transaction,
+                PlayMusicFragment.class, ScreenAnimation.OPEN_FULL, null, false, true);
     }
 }

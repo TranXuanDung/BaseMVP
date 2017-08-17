@@ -1,10 +1,12 @@
 package com.t3h.basemvp.ui.base.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -84,5 +86,15 @@ public abstract class BaseActivity extends AppCompatActivity
     protected void onDestroy() {
         mIsDestroy = true;
         super.onDestroy();
+    }
+
+    public boolean hideKeyBoard() {
+        android.view.View view = getCurrentFocus();
+        if (view == null) {
+            return false;
+        }
+//        view.setFocusable(false);
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        return imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

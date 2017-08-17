@@ -154,6 +154,7 @@ public abstract class BaseFragment extends Fragment
             transaction.setCustomAnimations(
                     screenAnimation.getEnterToRight(), screenAnimation.getExitToRight(),
                     screenAnimation.getEnterToLeft(), screenAnimation.getExitToLeft());
+            transaction.hide(fragment);
             if (isAddBackStack) {
                 transaction.addToBackStack(tag);
             }

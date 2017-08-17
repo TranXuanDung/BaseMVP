@@ -33,16 +33,15 @@ public class BasePresenter<V extends IViewMain> implements IBasePresenter {
         ob = ob.subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread());
         checkDis();
-        Disposable disposable = ob.subscribe(response -> {
-            onNext.call(response);
-        }, error -> {
+        Disposable disposable = ob.subscribe(onNext::call, error -> {
+            error.printStackTrace();
             onError.call(error);
         });
        disposables.add(disposable);
     }
 
     private void checkDis(){
-        for ( int i = disposables.size()-1; i >=0 ; i-- ) {
+        for ( int i = disposables.size()-1; i >= 0 ; i-- ) {
             if (disposables.get(i).isDisposed()){
                 disposables.remove(i);
             }

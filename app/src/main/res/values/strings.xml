@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">BaseMVP</string>
     <string name="Loading">Loading</string>
+    <string name="Please_input_full_info">Please input enough</string>
+    <string name="Password_does_not_match_the_confirm_password">Password does not match the confirm password</string>
+    <string name="Ok">Ok</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Do_you_want_delete_student">Do you want delete student?</string>
+    <string name="login">LOGIN</string>
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="forgot_your_password">Forgot your password ?</string>
+    <string name="go">GO</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="next">NEXT</string>
+    <string name="register">REGISTER</string>
 </resources>
